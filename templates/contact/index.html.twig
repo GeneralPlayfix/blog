@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    {% if name is defined and name is not null %}
+        <h1>Bonjour, {{ name }}</h1>
+    {% endif %}
+<div class="example-wrapper">
+    <h4>Bienvenue sur la page de contact</h4>
+{#    <h1>Hello {{ controller_name }}! ✅</h1>#}
+</div>
+    {% if contactCity is defined %}
+    <p>Ceci est la ville que vous avez essayé de contacter : {{ contactCity }}</p>
+    {% endif %}
+
+{% endblock %}
