@@ -13,8 +13,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path("blog") }}" class="menu__link r-link text-underlined">Blog</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path("contactWithoutNothing") }}" class="menu__link r-link text-underlined">Contact</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{ path("contactWithoutNothing") }}" class="menu__link r-link text-underlined" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contact</a>
+
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ path("contactWithoutNothing") }}">Contact sans rien</a>
+                        <li><a class="dropdown-item" href="{{ path("contact",{contactCity:"montpellier"}) }}">Contact Montpellier</a></li>
+                        <li><a class="dropdown-item" href="{{ path("contact",{contactCity:"montpellier", 'name':'Florian'}) }}">Contact Montpellier avec nom</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path("create_article") }}" class="menu__link r-link text-underlined">Créer un article</a>

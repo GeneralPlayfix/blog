@@ -6,8 +6,5 @@
     <img src="{{ asset('images/Weirdo.png') }}" alt="kuso_kat">
 <div>
     <h1>Hello sur {{ controller_name }} </h1>
-    <a href="{{ path("contactWithoutNothing") }}">Contact sans rien</a><br>
-    <a href="{{ path("contact",{contactCity:"montpellier"}) }}">Contact Montpellier</a><br>
-    <a href="{{ path("contact",{contactCity:"montpellier", 'name':'Florian'}) }}">Contact Montpellier avec nom</a>
 </div>
 {% endblock %}
