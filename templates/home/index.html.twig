@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}{{ controller_name }}!{% endblock %}
 
 {% block body %}
 
-<div class="example-wrapper">
+<div>
     <h1>Hello sur {{ controller_name }} </h1>
     <a href="{{ path("contactWithoutNothing") }}">Contact sans rien</a><br>
     <a href="{{ path("contact",{contactCity:"montpellier"}) }}">Contact Montpellier</a><br>
