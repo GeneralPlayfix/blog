@@ -6,15 +6,21 @@
     <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
     <!-- Copy CSS from https://getbootstrap.com/docs/5.0/getting-started/introduction/#css -->
     {#{{ encore_entry_link_tags('app') }}#}
+    {{ encore_entry_link_tags('contact') }}
+
 {% endblock %}
 {% block body %}
     {% if name is defined and name is not null %}
+
         <h1>Bonjour, {{ name }}</h1>
     {% endif %}
 <div class="example-wrapper">
     <h4>Bienvenue sur la page de contact</h4>
 {#    <h1>Hello {{ controller_name }}! ✅</h1>#}
 </div>
+    <div class="test">
+        <a href="">Back</a>
+    </div>
     {% if contactCity is defined %}
     <p>Ceci est la ville que vous avez essayé de contacter : {{ contactCity }}</p>
     {% endif %}
