@@ -20,123 +20,106 @@ class Contact
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Nom;
+    private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Prenom;
+    private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Email;
+    private $sujet;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Sujet;
+    private $message;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="boolean")
      */
-    private $Message;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $Newsletter;
+    private $newsletter = false;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getPrenom(): ?string
     {
-        return $this->Prenom;
+        return $this->prenom;
     }
 
-    public function setPrenom(string $Prenom): self
+    public function setPrenom(string $prenom): self
     {
-        $this->Prenom = $Prenom;
+        $this->prenom = $prenom;
 
         return $this;
     }
 
     public function getEmail(): ?string
     {
-        return $this->Email;
+        return $this->email;
     }
 
-    public function setEmail(string $Email): self
+    public function setEmail(string $email): self
     {
-        $this->Email = $Email;
+        $this->email = $email;
 
         return $this;
     }
 
     public function getSujet(): ?string
     {
-        return $this->Sujet;
+        return $this->sujet;
     }
 
-    public function setSujet(string $Sujet): self
+    public function setSujet(string $sujet): self
     {
-        $this->Sujet = $Sujet;
+        $this->sujet = $sujet;
 
         return $this;
     }
 
     public function getMessage(): ?string
     {
-        return $this->Message;
+        return $this->message;
     }
 
-    public function setMessage(string $Message): self
+    public function setMessage(string $message): self
     {
-        $this->Message = $Message;
+        $this->message = $message;
 
         return $this;
     }
 
-    public function getNewsletter(): ?string
+    public function getNewsletter(): ?bool
     {
-        return $this->Newsletter;
+        return $this->newsletter;
     }
 
-    public function setNewsletter(string $Newsletter): self
+    public function setNewsletter(bool $newsletter): self
     {
-        $this->Newsletter = $Newsletter;
+        $this->newsletter = $newsletter;
 
         return $this;
     }
