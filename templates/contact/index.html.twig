@@ -22,7 +22,10 @@
         <a href="">Back</a>
     </div>
     {% if contactCity is defined %}
-    <p>Ceci est la ville que vous avez essayé de contacter : {{ contactCity }}</p>
+        <p>Ceci est la ville que vous avez essayé de contacter : {{ contactCity }}</p>
+    {% endif %}
+    {% if user is defined %}
+        {{ dump(user) }}
     {% endif %}
 
 {% endblock %}
