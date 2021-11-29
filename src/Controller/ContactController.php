@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
+use App\Form\ContactType;
 use App\Repository\ContactRepository;
 use phpDocumentor\Reflection\Types\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+
 class ContactController extends AbstractController
 {
     private $contactRepository;
@@ -18,32 +21,24 @@ class ContactController extends AbstractController
     /**
      * @Route("/contact", name="contactWithoutNothing")
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        return $this->render('contact/index.html.twig', [
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+        return $this->renderForm('contact/index.html.twig', [
             'test' => $this->contactRepository->findAll(),
+            'form'=> $form,
     ]);
     }
 
     /**
      * @Route("/contact/{id}", name="contactById")
      */
-    public function contactById(string $id): Response
+
+    public function contactById(int $id): Response
     {
         return $this->render('contact/index.html.twig', [
             'user' => $this->contactRepository->find($id),
-        ]);
-    }
-
-    /**
-     * @Route("/contact/{contactCity}", name="contact")
-     */
-    public function contact(Request $request, string $contactCity): Response
-    {
-        $name = $request->query->get('name');
-        return $this->render('contact/index.html.twig', [
-            'contactCity' => $contactCity,
-            'name'=>$name
         ]);
     }
 }
