@@ -10,25 +10,35 @@
 
 {% endblock %}
 {% block body %}
-    {% if name is defined and name is not null %}
+    {% if request is defined %}
+        <h2>Mes demandes de contact ({{ request|length }}) :</h2>
+        <ul>
+        {% for person in request  %}
+            <li>
+                <a href="{{  path("contactRequestId",{id:person.id}) }}">Demande de contact de : {{ person.nom }} {{ person.prenom }}</a><br>
+            </li>
+        {% endfor %}
+        </ul>
+            {% endif %}
 
-        <h1>Bonjour, {{ name }}</h1>
-    {% endif %}
-<div class="example-wrapper">
-    <h4>Bienvenue sur la page de contact</h4>
-{#    <h1>Hello {{ controller_name }}! ✅</h1>#}
-</div>
-    <div class="test">
-        <a href="">Back</a>
-    </div>
-    {% if contactCity is defined %}
-        <p>Ceci est la ville que vous avez essayé de contacter : {{ contactCity }}</p>
-    {% endif %}
-    {% if user is defined %}
-        {{ dump(user) }}
-    {% endif %}
     {% if form is defined %}
         {{ form(form) }}
     {% endif %}
 
+    {% if requestId is defined %}
+        <p>Mon contact actuel : </p>
+        <ul>
+            <li>Id : <b>{{ requestId.id }}</b></li>
+            <li>Nom : <b>{{ requestId.nom }}</b></li>
+            <li>Prénom : <b>{{ requestId.prenom }}</b></li>
+            <li>Email : <b>{{ requestId.email }}</b></li>
+            <li>Sujet : <b>{{ requestId.sujet }}</b></li>
+            <li>Message : <b>{{ requestId.message }}</b></li>
+            {% if requestId.newsletter == false %}
+                <li>Newsletter :   <b>nope</b></li>
+            {% else %}
+                <li>Newsletter : <b>oui</b></li>
+            {% endif %}
+        </ul>
+    {% endif %}
 {% endblock %}
